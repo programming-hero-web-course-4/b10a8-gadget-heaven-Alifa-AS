@@ -7,7 +7,7 @@ const Root = () => {
         <div className="container mx-auto">
             <Navbar></Navbar>
             
-            <div className="min-h-[calc(100vh-232px)] pb-12">
+            <div className="min-h-[calc(100vh-410px)] pb-12">
                 <Outlet></Outlet>
             </div>
             <Footer></Footer>
