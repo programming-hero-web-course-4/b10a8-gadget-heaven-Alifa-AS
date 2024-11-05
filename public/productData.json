@@ -11,7 +11,7 @@
         "rating": 4.8
     },
     {
-        "product_image": "https://ibb.co.com/0Cy4pjS",
+        "product_image": "https://i.ibb.co.com/z6rVyG4/XPS-1.jpg",
         "product_id": 2,
         "product_title": "Dell XPS 13",
         "category": "Computers",
@@ -33,7 +33,7 @@
         "rating": 4.7
     },
     {
-        "product_image": "https://example.com/image4.jpg",
+        "product_image": "https://i.ibb.co.com/G3ztTzR/redmi.webp",
         "product_id": 4,
         "product_title": "Redmi Note 14 Pro Max",
         "category": "Phones",
@@ -110,7 +110,7 @@
         "rating": 4.6
     },
     {
-        "product_image": "https://example.com/image5.jpg",
+        "product_image": "https://i.ibb.co.com/bspSVWC/Samsung-Galaxy-S24-Ultra-Violet.webp",
         "product_id": 11,
         "product_title": "Samsung Galaxy S24 Ultra",
         "category": "phones",
