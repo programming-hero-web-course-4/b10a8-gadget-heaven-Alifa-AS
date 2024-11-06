@@ -11,7 +11,7 @@ const ProductDetails = () => {
     const {product_id} = useParams();
     const[productDetail, setProductDetail] = useState({})
     
-    const [isExist, setIsExist] = useState(false);
+
 
     useEffect(()=>{
         const singleData = data.find(product => product.product_id === parseInt(product_id))
