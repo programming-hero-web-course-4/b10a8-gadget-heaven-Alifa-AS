@@ -3,7 +3,7 @@ import Banner from '../Banner/Banner';
 import Heading from '../Heading/Heading';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import Categories from '../Categories/Categories';
-import Footer from '../Footer/Footer';
+
 
 const Home = () => {
  

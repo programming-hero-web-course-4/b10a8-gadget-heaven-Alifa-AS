@@ -7,15 +7,16 @@ const Product = ({ product }) => {
     return (
         <div className="flex relative">
            <Link
-           to={`/ProductDetails/${product_id}`}
+           to={`/products/${product_id}`}
            className="transition hover:scale-105 shadow-xl rounded-xl overflow-hidden"
            >
             <figure className="w-full h-48 px-5 pt-5 overflow-hidden">
             <img className="rounded-xl" src={product_image} alt="img"/>
             </figure>
             <div className="p-4 my-5">
-                <h1>{product_title}</h1>
-                <p>Price: ${price}</p>
+                <h1 className="font-bold">{product_title}</h1>
+                <p className="py-5">Price: ${price}</p>
+                <button className="btn">View Details</button>
             </div>
            </Link>
         </div>

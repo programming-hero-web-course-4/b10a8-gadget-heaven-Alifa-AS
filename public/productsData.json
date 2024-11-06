@@ -6,7 +6,9 @@
         "category": "Phones",
         "price": 179,
         "description": "Latest high-end smartphone with advanced features",
-        "specification": ["128GB Storage", "6GB RAM", "Triple Camera"],
+        "specification": ["128GB Storage",
+         "6GB RAM", 
+         "Triple Camera"],
         "availability": true,
         "rating": 4.8
     },
@@ -117,7 +119,7 @@
         "price": 140,
         "description": "High-performance smartphone with advanced camera capabilities",
         "specification": ["108MP Camera", "5000mAh Battery", "AMOLED Display", "8K Video Recording"],
-        "availability": true,
+        "availability": false,
         "rating": 4.8
     },
     {
