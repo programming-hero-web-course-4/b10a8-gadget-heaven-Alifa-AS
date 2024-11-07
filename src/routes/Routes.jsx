@@ -6,6 +6,7 @@ import Dashboard from "../Components/Dashboard/Dashboard";
 import Statistics from "../Components/Statistics/Statistics";
 import Products from "../Components/Products/Products";
 import ProductDetails from "../Components/ProductDetails/ProductDetails";
+import Faq from "../Components/Faq/Faq";
 
 
 const routes = createBrowserRouter([
@@ -38,6 +39,10 @@ const routes = createBrowserRouter([
         {
           path:'/dashboard',
           element: <Dashboard></Dashboard>,
+        },
+        {
+          path:'/faq',
+          element: <Faq></Faq>,
         },
         {
           path:'products/:product_id',

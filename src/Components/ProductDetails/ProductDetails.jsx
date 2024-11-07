@@ -53,11 +53,13 @@ const ProductDetails = () => {
                             <p className='py-2'>{description}</p>
                             <h2 className='py-2 font-bold'>Specification:<span className='px-2 font-light'>{specification}</span></h2>
                             <h2 className='font-bold py-2 mb-4'>Rating:<span className='px-2 font-light'>{rating}</span></h2>
-                            <button disabled = {isExist}
+                            <div className='space-x-4'>
+                            <button 
                             onClick={() => handleAddToCart(product_id)}
                              className='btn btn-primary rounded-full'>Add To Cart</button>
+                             <button className='btn btn-primary rounded-full'>Wish List</button>
+                            </div>
                         </div>
-
                     </div>
                 </div>
                 </div>
