@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
-import { addToCartList } from '../Utilities';
-
+import { addToCartList , addToStoredWishList } from '../Utilities';
+import { FaRegHeart, FaShoppingCart } from "react-icons/fa";
 
 
 
@@ -10,14 +10,17 @@ const ProductDetails = () => {
     const data = useLoaderData();
     const {product_id} = useParams();
     const[productDetail, setProductDetail] = useState({})
-    
+    const[isWishList, setIsWishList] = useState(false);
 
 
     useEffect(()=>{
         const singleData = data.find(product => product.product_id === parseInt(product_id))
-        setProductDetail(singleData)
+        setProductDetail(singleData);
+
+        const storedWishList = JSON.parse(localStorage.getItem('wish-list')) || [];
+        setIsWishList(storedWishList.includes(parseInt(product_id)));
         
-    },[data, product_id])
+    },[data, product_id]);
 
     const {product_image,product_title,price,description,specification,availability,rating}
     = productDetail;
@@ -26,6 +29,12 @@ const ProductDetails = () => {
         addToCartList (product_id)
     }
     
+    const handleAddToWishList = (product_id) => {
+        if(!isWishList){
+            addToStoredWishList(product_id);
+            setIsWishList(true);
+        }
+    }
 
     return (
         <>
@@ -56,8 +65,14 @@ const ProductDetails = () => {
                             <div className='space-x-4'>
                             <button 
                             onClick={() => handleAddToCart(product_id)}
-                             className='btn btn-primary rounded-full'>Add To Cart</button>
-                             <button className='btn btn-primary rounded-full'>Wish List</button>
+                             className='btn btn-primary rounded-full'>Add To Cart <FaShoppingCart className="ml-2" />
+                             </button>
+                             <button 
+                             onClick={() => handleAddToWishList(product_id)}
+                             className='btn rounded-full'
+                                disabled={isWishList}>
+                             <FaRegHeart className={`${isWishList ? 'text-red-500' : 'text-slate-500'}`} />
+                             </button>
                             </div>
                         </div>
                     </div>
