@@ -16,7 +16,8 @@ const Dashboard = () => {
   const [activeTab, setActiveTab] = useState("Cart");
   const [totalCost, setTotalCost] = useState(0);
   const [filtered, setFiltered] = useState([]);
-  const [showModal, setShowModal] = useState(false)
+  const [filteredWishList, setFilteredWishList] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   console.log(filtered)
 
 
@@ -42,6 +43,13 @@ const Dashboard = () => {
     setFiltered(filteredData);
   }, [data, cartItems]);
 
+ useEffect(() => {
+    const filteredWishListData = data.filter((d)=> 
+        wishListItems.includes(d.product_id.toString())
+    );
+    setFilteredWishList(filteredWishListData);
+ },[data, wishListItems])
+
   useEffect(()=>{
     setTotalCost(calculateTotalCost(filtered))
   },[filtered])
@@ -63,7 +71,7 @@ const Dashboard = () => {
         toast.error("Your cart is empty!")
         return;
     }
-    toast.success('Congratulations! Successfully purchase!')
+    toast.success('Congratulations! Successfully purchased!')
 
     // clear after purchase
     setCartItems([]);
@@ -83,7 +91,7 @@ const Dashboard = () => {
           <button className="btn w-full"
           onClick={()=>{
             setShowModal(false); 
-            Navigate("/"); 
+            navigate("/"); 
           }}>
             Close
           </button>
@@ -150,7 +158,7 @@ const Dashboard = () => {
                     removeFromCartList(item.product_id);
                     setCartItems(
                       cartItems.filter(
-                        (cartItem) => cartItem.product_id !== item.product_id
+                        (cartItem) => cartItem.product_id !== item.product_id.toString()
                       )
                     );
                   }}
@@ -165,7 +173,7 @@ const Dashboard = () => {
         <div className="container mx-auto py-10">
           <h1 className="text-2xl font-semibold text-center py-5">Wish List</h1>
           <div className="grid gap-4 grid-cols-2 lg:grid-cols-1 md:grid-cols-3">
-            {wishListItems.map((item) => (
+            {filteredWishList.map((item) => (
               <div
                 key={item.product_id}
                 className="border p-4 rounded-lg shadow-lg"
