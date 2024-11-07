@@ -156,10 +156,8 @@ const Dashboard = () => {
                   className="btn btn-sm btn-outline mt-2"
                   onClick={() => {
                     removeFromCartList(item.product_id);
-                    setCartItems(
-                      cartItems.filter(
-                        (cartItem) => cartItem.product_id !== item.product_id.toString()
-                      )
+                      setCartItems(prevCartItems => 
+                        prevCartItems.filter(cartItem => cartItem !== item.product_id.toString())
                     );
                   }}
                 >
@@ -189,10 +187,8 @@ const Dashboard = () => {
                   className="btn btn-sm btn-outline mt-2"
                   onClick={() => {
                     removeFromWishList(item.product_id);
-                    setWishListItems(
-                      wishListItems.filter(
-                        (wishItem) => wishItem.product_id !== item.product_id
-                      )
+                    setWishListItems(prevWishListItems =>
+                     prevWishListItems.filter(wishItem => wishItem !== item.product_id.toString())
                     );
                   }}
                 >
